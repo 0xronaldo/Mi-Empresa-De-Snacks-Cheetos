@@ -198,7 +198,7 @@ El sistema automáticamente promociona clientes según sus compras totales:
 
 ---
 
-## 📊 Estructuras de Datos
+##  Estructuras de Datos
 
 ### MercadoSnacks
 ```move
@@ -231,7 +231,7 @@ public struct Cliente has store, drop, copy {
 
 ---
 
-## 🚀 Flujo de Uso Típico
+## Flujo de Uso Típico
 
 ### Configuración Inicial
 1. **Crear mercado** con `crear_mercado()`
@@ -249,7 +249,7 @@ public struct Cliente has store, drop, copy {
 
 ---
 
-## 💡 Ejemplo Completo de Uso
+## Ejemplo Completo de Uso
 
 ```move
 // 1. Crear mercado
@@ -284,7 +284,7 @@ obtener_estado_cliente(&mercado, 1);
 
 ---
 
-## ⚠️ Errores y Validaciones
+## Errores y Validaciones
 
 | Código de Error | Descripción |
 |----------------|-------------|
@@ -297,68 +297,42 @@ obtener_estado_cliente(&mercado, 1);
 
 ---
 
-## 🔐 Características de Seguridad
 
-- **IDs únicos:** Previene duplicación de vendedores/clientes
-- **Validación de existencia:** Verifica que vendedores/clientes existan antes de operar
-- **Control de stock:** No permite ventas sin inventario suficiente
-- **Validación de cantidad:** Rechaza cantidades inválidas (≤ 0)
-- **Historial inmutable:** Las compras se registran permanentemente
+### Despliegue del Contrato
 
----
+El contrato fue desplegado exitosamente en la blockchain Sui con los siguientes detalles:
 
-## 📈 Métricas Rastreadas
+####  Información del Despliegue
 
-- Ventas totales por vendedor (unidades)
-- Compras totales por cliente (unidades)
-- Historial completo de compras por cliente
-- Inventario en tiempo real por tipo de snack y vendedor
-- Niveles de lealtad automáticos
-
----
-
-## 📝 Nota
-
-Este contrato está diseñado para la blockchain Sui y utiliza el framework Move. El sistema de lealtad promueve la retención de clientes mediante incentivos progresivos basados en volumen de compras.
-
-
-
-### Despliegue del contrato 
-
-➜ sui client publish --skip-dependency-verification
-[warn] Client/Server api version mismatch, client api version : 1.31.1, server api version : 1.57.3
-UPDATING GIT DEPENDENCY https://github.com/MystenLabs/sui.git
-INCLUDING DEPENDENCY Sui
-INCLUDING DEPENDENCY MoveStdlib
 BUILDING tienda_papasfritas
 Total number of linter warnings suppressed: 1 (unique lints: 1)
 Skipping dependency verification
 Transaction Digest: 95zFVLQdgN59NQiSACoFqmgasEGaVPvQThjZgzzzPpd8
-╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ Transaction Data                                                                                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Sender: 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b                                   │
-│ Gas Owner: 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b                                │
-│ Gas Budget: 25249200 MIST                                                                                    │
-│ Gas Price: 495 MIST                                                                                          │
-│ Gas Payment:                                                                                                 │
-│  ┌──                                                                                                         │
-│  │ ID: 0x46abbcbdf08bd13f2e76338fa174843519c1c5b63487db9f16d40369deaf07ea                                    │
-│  │ Version: 609580913                                                                                        │
-│  │ Digest: 3g8QtzUjkj3gj4KGdow1GTbR8ZpYYa6RHG5H4MrkzB7F                                                      │
-│  └──                                                                                                         │
-│                                                                                                              │
-│ Transaction Kind: Programmable                                                                               │
-│ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │
-│ │ Input Objects                                                                                            │ │
-│ ├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
-│ │ 0   Pure Arg: Type: address, Value: "0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b" │ │
-│ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
-│ ╭─────────────────────────────────────────────────────────────────────────╮                                  │
-│ │ Commands                                                                │                                  │
-│ ├─────────────────────────────────────────────────────────────────────────┤                                  │
-│ │ 0  Publish:                                                             │                                  │
-│ │  ┌                                                                      │                                  │
+**Transaction Digest:** `95zFVLQdgN59NQiSACoFqmgasEGaVPvQThjZgzzzPpd8`────────────────────────────────────────────────────────────────────────────────────╮
+                                                │
+**Package ID:** `0xdb9375fd88007e02834c2ee7fdd9955df46f03275d8a643bbf6aa9e02fdadf6b`───────────────────────────────────────────────────────────────────────────────┤
+666920480b8b                                   │
+**Status:** Success
+
+**Epoch:** 910
+
+#### 🔧 Objetos Creados
+
+| Tipo de Objeto | Object ID | Owner |
+|----------------|-----------|--------|
+| **UpgradeCap** | `0xbb09262f68490bbf08e8acebadb3d63948aace22b7208c443fe583b26a33dd54` | Account Address |
+| **Published Package** | `0xdb9375fd88007e02834c2ee7fdd9955df46f03275d8a643bbf6aa9e02fdadf6b` | Immutable |
+
+#### Costos de Gas
+
+- **Storage Cost:** 24,259,200 MIST
+- **Computation Cost:** 495,000 MIST  
+- **Storage Rebate:** 978,120 MIST
+- **Total Cost:** 23,776,080 MIST
+
+#### Módulos Incluidos
+
+- **mercado** - Contrato principal del sistema de mercado de snacks
 │ │  │ Dependencies:                                                        │                                  │
 │ │  │   0x0000000000000000000000000000000000000000000000000000000000000001 │                                  │
 │ │  │   0x0000000000000000000000000000000000000000000000000000000000000002 │                                  │
@@ -367,99 +341,16 @@ Transaction Digest: 95zFVLQdgN59NQiSACoFqmgasEGaVPvQThjZgzzzPpd8
 │ │ 1  TransferObjects:                                                     │                                  │
 │ │  ┌                                                                      │                                  │
 │ │  │ Arguments:                                                           │                                  │
-│ │  │   Result 0                                                           │                                  │
-│ │  │ Address: Input  0                                                    │                                  │
-│ │  └                                                                      │                                  │
-│ ╰─────────────────────────────────────────────────────────────────────────╯                                  │
-│                                                                                                              │
-│ Signatures:                                                                                                  │
-│    7RQIaDv9ldKqN4lp8Zy2oa417NcWX3F45Ts9AYk/pIIocJSIL+hC0kK5jrRuoarZjfUADQ+7UXRZdzShyNnqCw==                  │
-│                                                                                                              │
-╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭───────────────────────────────────────────────────────────────────────────────────────────────────╮
+
+#### Próximos Pasos
+
+Para interactuar con el contrato desplegado, utiliza el Package ID:
+```bash
+# Ejemplo de llamada a función
+sui client call --package 0xdb9375fd88007e02834c2ee7fdd9955df46f03275d8a643bbf6aa9e02fdadf6b \
+    --module mercado \
+    --function crear_mercado \
+    --args "Mi Mercado de Snacks"
 │ Transaction Effects                                                                               │
 ├───────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Digest: 95zFVLQdgN59NQiSACoFqmgasEGaVPvQThjZgzzzPpd8                                              │
-│ Status: Success                                                                                   │
-│ Executed Epoch: 910                                                                               │
-│                                                                                                   │
-│ Created Objects:                                                                                  │
-│  ┌──                                                                                              │
-│  │ ID: 0xbb09262f68490bbf08e8acebadb3d63948aace22b7208c443fe583b26a33dd54                         │
-│  │ Owner: Account Address ( 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b )  │
-│  │ Version: 609580914                                                                             │
-│  │ Digest: 68tMM5boN8HxuSKN2kvkyMXdkyFGSionfufbborw53ux                                           │
-│  └──                                                                                              │
-│  ┌──                                                                                              │
-│  │ ID: 0xdb9375fd88007e02834c2ee7fdd9955df46f03275d8a643bbf6aa9e02fdadf6b                         │
-│  │ Owner: Immutable                                                                               │
-│  │ Version: 1                                                                                     │
-│  │ Digest: Cepva5BchM4sLiBXRTY3JNDuKNQASBgTJ62Myj2hHTzY                                           │
-│  └──                                                                                              │
-│ Mutated Objects:                                                                                  │
-│  ┌──                                                                                              │
-│  │ ID: 0x46abbcbdf08bd13f2e76338fa174843519c1c5b63487db9f16d40369deaf07ea                         │
-│  │ Owner: Account Address ( 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b )  │
-│  │ Version: 609580914                                                                             │
-│  │ Digest: 6drNj25QmrHduQMtPp6HxE72aWaVp6ckfSDCuDiEoLhH                                           │
-│  └──                                                                                              │
-│ Gas Object:                                                                                       │
-│  ┌──                                                                                              │
-│  │ ID: 0x46abbcbdf08bd13f2e76338fa174843519c1c5b63487db9f16d40369deaf07ea                         │
-│  │ Owner: Account Address ( 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b )  │
-│  │ Version: 609580914                                                                             │
-│  │ Digest: 6drNj25QmrHduQMtPp6HxE72aWaVp6ckfSDCuDiEoLhH                                           │
-│  └──                                                                                              │
-│ Gas Cost Summary:                                                                                 │
-│    Storage Cost: 24259200 MIST                                                                    │
-│    Computation Cost: 495000 MIST                                                                  │
-│    Storage Rebate: 978120 MIST                                                                    │
-│    Non-refundable Storage Fee: 9880 MIST                                                          │
-│                                                                                                   │
-│ Transaction Dependencies:                                                                         │
-│    yqtELKLqAuSGkt6PX52KHKvmDKCrV3KCLxm6HAqL6DZ                                                    │
-│    9nATGuLyuZfaHKhhkmyBSjSJDq5k4yuPqqPwbNsKq4je                                                   │
-│    Fs21V1VNNohcRvbXiDjHY57fQ5NW2RDZ6YZZEESCKT72                                                   │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭─────────────────────────────╮
-│ No transaction block events │
-╰─────────────────────────────╯
-
-╭──────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ Object Changes                                                                                   │
-├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Created Objects:                                                                                 │
-│  ┌──                                                                                             │
-│  │ ObjectID: 0xbb09262f68490bbf08e8acebadb3d63948aace22b7208c443fe583b26a33dd54                  │
-│  │ Sender: 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b                    │
-│  │ Owner: Account Address ( 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b ) │
-│  │ ObjectType: 0x2::package::UpgradeCap                                                          │
-│  │ Version: 609580914                                                                            │
-│  │ Digest: 68tMM5boN8HxuSKN2kvkyMXdkyFGSionfufbborw53ux                                          │
-│  └──                                                                                             │
-│ Mutated Objects:                                                                                 │
-│  ┌──                                                                                             │
-│  │ ObjectID: 0x46abbcbdf08bd13f2e76338fa174843519c1c5b63487db9f16d40369deaf07ea                  │
-│  │ Sender: 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b                    │
-│  │ Owner: Account Address ( 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b ) │
-│  │ ObjectType: 0x2::coin::Coin<0x2::sui::SUI>                                                    │
-│  │ Version: 609580914                                                                            │
-│  │ Digest: 6drNj25QmrHduQMtPp6HxE72aWaVp6ckfSDCuDiEoLhH                                          │
-│  └──                                                                                             │
-│ Published Objects:                                                                               │
-│  ┌──                                                                                             │
-│  │ PackageID: 0xdb9375fd88007e02834c2ee7fdd9955df46f03275d8a643bbf6aa9e02fdadf6b                 │
-│  │ Version: 1                                                                                    │
-│  │ Digest: Cepva5BchM4sLiBXRTY3JNDuKNQASBgTJ62Myj2hHTzY                                          │
-│  │ Modules: mercado                                                                              │
-│  └──                                                                                             │
-╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭───────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ Balance Changes                                                                                   │
-├───────────────────────────────────────────────────────────────────────────────────────────────────┤
-│  ┌──                                                                                              │
-│  │ Owner: Account Address ( 0x4a641a9c4d14585bd9d74f5a5b0e0188b36ab9c5a0e1907e57d2666920480b8b )  │
-│  │ CoinType: 0x2::sui::SUI                                                                        │
-│  │ Amount: -23776080                                                                              │
-│  └──                                                                                              │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────╯
+```
